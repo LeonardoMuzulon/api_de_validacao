@@ -15,9 +15,16 @@ function normalizeText(value = '') {
 function extractMotives(flowAnswers) {
   const result = {};
   const motives = [];
+  let observacoes = '';
 
   for (const [key, value] of Object.entries(flowAnswers || {})) {
     if (key === 'flow_token') continue;
+
+    if (key === 'screen_1_Observaes_0') {
+      observacoes = String(value || '');
+      continue;
+    }
+
     if (value === null || value === undefined || value === '') continue;
 
     const keyParts = String(key).split('_');
@@ -39,6 +46,7 @@ function extractMotives(flowAnswers) {
   });
 
   result.quantidadeMotivos = String(motives.length);
+  result.observacoes = observacoes;
 
   return result;
 }
