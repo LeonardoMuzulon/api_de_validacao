@@ -1,6 +1,12 @@
 {
+  "name": "api-flow-parser",
+  "version": "1.0.0",
+  "description": "API para extrair respostas de flows",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "axios": "^1.10.0",
-    "express": "^5.1.0"
+    "express": "^4.21.2"
   }
 }
