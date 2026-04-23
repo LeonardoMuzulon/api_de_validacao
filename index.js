@@ -21,10 +21,6 @@ function extractMotives(flowAnswers) {
     if (value === null || value === undefined || value === '') continue;
 
     const keyParts = String(key).split('_');
-
-    // Exemplo:
-    // screen_0_Financeiro_0
-    // macro = Financeiro
     const macroRaw = keyParts[2] || '';
     const microRaw = normalizeText(value);
 
@@ -38,11 +34,11 @@ function extractMotives(flowAnswers) {
 
   motives.forEach((item, index) => {
     const position = index + 1;
-    result[`Motivo Macro ${position}`] = item.macro;
-    result[`Motivo Micro ${position}`] = item.micro;
+    result[`MotivoMacro${position}`] = item.macro;
+    result[`MotivoMicro${position}`] = item.micro;
   });
 
-  result.quantidade_motivos = String(motives.length);
+  result.quantidadeMotivos = String(motives.length);
 
   return result;
 }
